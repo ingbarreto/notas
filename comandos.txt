@@ -1,0 +1,133 @@
+docker inspect hello-world:latest  = ver metadatos de una imagen
+docker history hello-world = historia de un contenedor 
+docker ps -a = listar contenedores
+docker rm 79a429c7da33  = eliminar un contenedor usando su CONTAINER ID
+docker pull python = descargar una imagen desde repositorio
+docker ps -a = ver procesos de contenedores corriendo
+docker run -it python = correr un contenedor -it interactivo
+CTRL - D = para salir de un proceso
+
+/var/lib/docker =directorio docker almacena archivos
+
+
+https://github.com/ricardoandre97/docker-es-resources
+
+Docker Images
+----------
+docker images | grep nombre_busqueda  = listar imagenes y realizar un filtro de busqueda
+docker images  = Listar imagenes
+docker pull nombre_imagen:tags = descargar una imagen oficial utilizar tags para descargar una versión especifica de la imagen
+mkdir docker-images = creamos una carpeta
+nano Dockerfile = creamos un archivo Dockerfile
+
+--- libro docker
+docker ps = listar los contenedores que se están ejecutando, es decir que tiene un proceso que no se ha detenido
+docker ps -a = listar los contenedores que tambien estén detenidos
+
+docker logs contenedor : Podemos acceder a sus registros de tres distintas maneras:
+1. Con el identificador corto de 16 caracteres
+2. Con el identificador largo de 64 caracteres
+3. Con el nombre del contenedor
+
+Inspeccionar un contenedor
+
+docker inspect contenedor
+
+contenedor en modo interactivo
+cuando se quiere ejecutar un contenedor y trabajar interactivamente. Para que un contenedor no se detenga al ejecutarse, debemos indicarle
+un comando con el que podamos trabajar de manera interactiva
+
+docker run -ti debian 
+
+Exponer puertos
+Docker proporciona lo denominado "Exposición de puertos" que consiste en reservar un puerto del servidor de docker con el fin de redirigir
+las peticiones a un puerto específico del contenedor.
+para realizar esta tarea, durante la creación del contenedor indicaremos a través de las opciones -p o -P el puerto o los puertos que
+deseemos redirigir
+
+-P (--publish-all): selecciona un puerto libre aleatorio del servidor donde se van a escuchar las peticiones a redirigir
+-p (--publish-value): debemos especificar un puerto manualmente donde deseamos realizar la escucha. Si el puerto está en uso, la creación
+del contenedor fallará.
+
+contenedores
+crear un contenedor en avance y ejecutarlo en un momento determinado
+
+docker create  -[opciones] imagen [comando]
+
+la opción creatre realizará las siguientes tareas:
+1. Descargará, si no ha sido descargada anteriormente o si hay una versión disponible, la imagen especificada
+2. Creara los ficheros o sistemas de ficheros requeridos
+3. Establecerá las propiedades del contenedor
+4. Devolverá el identificador del contenedor recién creado
+
+Acciones básicas sobre contenedores
+para listar y obtener ayuda de las acciones disponibles de Docker podemos ejecutar el siguiente comando:
+
+Imagenes
+un contenedor depende de una imagen para su funcionamiento. Cuando creamos un contenedor se basará en el contenido de una imagen
+En caso de querer guardar los cambios generados en un contenedor para utilizarlo en otro, será necesario convertirlo en una imagen
+
+docker build NameDockerFile = Comando que se utliza para construir una imagen tomando un archivo Dockerfile
+
+docker build --tag apache-fedora .
+
+docker images | greep apache-fedora
+docker history -H apache-fedora
+docker build -t apache-fedora:apache-cmd .
+docker rm -fv 590ce5e1b2f8 = remover contenedor
+
+
+
+
+Primeros pasos con docker
+
+docker run -ti debian cat /etc/debian_version
+
+donde los elementos del comando son los siguientes:
+
+1. docker: Es el comando de acceso como cliente al servicio de Docker
+2. run: es la acción que vamos a ejecutar con el cliente, en este caso, significa ejecutar un nuevo contenedor
+3. opciones -ti: 
+ 3.1 -t(pseudo TTY): Indica iniciar el contenedor con la posibilidad de acceder al terminal del mismo
+ 3.2 -i: Indica iniciar el contenedor en modo interactivo, la entrada de texto será posible al trabajar con el contenedor.
+         por defecto la entrada de texto (STDIN) no es posible.
+4. debian: es la distribución con la que queremos ejecutar nuestro contenedor
+5. cat /etc/debian_version: Es el comando que se ejecutará dentro del contenedor         
+
+docker ps = listar contenedores que están en ejecución
+docker ps -a = listar contenedores que están en ejecución y detenidos 
+
+comandos capitulo primeros pasos
+
+docker run -ti debian cat /etc/debian_version = -t acceder al terminal del contenedor -i contenedor en modo interactivo
+docker ps = listar los contenedores que se están ejecutando actualmente, es decir que tiene un proceso que no se ha detenido.
+docker ps -a = lista los contenedores detenidos
+docker inspect contenedor 
+
+
+Pasos de instalacion
+
+/tmp/GitEye/Descargas/GitEye-2.2.0-linux.x86_64.zipnam
+/home/lahb/Descargas/GitEye-2.2.0-linux.x86_64.zip
+
+unzip -d /tmp/GitEye ~/Downloads/GitEye*.zip
+
+unzip -d /tmp/GitEye GitEye.zip
+
+sudo chown -R root:root /tmp/GitEye
+
+
+sudo mv /tmp/GitEye /opt/GitEye
+
+sudo ln -s /opt/GitEye/GitEye /usr/local/bin/GitEye
+
+GitEye
+
+
+CONFIG SERVICE
+REGISTRY SERVICE
+ 
+
+ 
+
+

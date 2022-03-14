@@ -1,0 +1,30 @@
+git clone https://github.com/platzi/docker
+docker build -t platziapp .
+docker run --init --rm -p 3000:3000 platziapp
+docker network ls --listar redes
+docker network create --attachable platzinet  -- crear una red que permite conexiones entre contenedores
+docker run -d --name db mongo    
+docker network connect platzinet db -- conectar un contenedor a un red platzinet
+docker run -d --name app -p 3000:3000 --env MONGO_URL=mongodb://db:27017/test platziapp -- utilizar una variable de entorno
+docker-compose up -d  = iniciar un archivo docker compose y enviar al fondo contenedores
+docker-compose logs app = ver logs de un contenedor 
+docker-compose --version
+docker-compose exec app bash = ejecutar un comando o terminal dentro de un contenedor
+docker-compose down = bajar contenedores
+docker-compose build 
+docker-compose up -d --scale app=2  = escalar a aplicación dos contenedores
+docker container prune = eliminar todos los contenedores que se encuentren detenidos/apagados
+docker ps -aq  = mostrar todos los id de todos los contenedores
+docker rm -f $(docker ps -aq) = eliminar todos los contenedores de manera forzadado
+docker network ls
+docker volume ls 
+docker system prune = elimina todo del ambiente que no se este utilizando
+docker image rm -f $(docker image ls -q) = eliminar todas las imagenes creadas
+docker stats = ver consumo recursos
+docker inspect app = ver logs aplicación fallas por ejemplo recursos de memoria
+codigo de salida superior a 128 resultado de una salida de error mal manejada
+docker kill looper = enviar la señal de sgkill al contenedor
+docker exec lopper ps -ef
+
+docker build -t ubuntu:platzi .
+cada instrucción que se coloque en un DockerFile va a generar una nueva capa un nuevo layers en mi imagen resultante
