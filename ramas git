@@ -1,4 +1,13 @@
 --crear una rama local a partir de una rama remota
 git checkout -b nombreramalocal origin/nombreramaremota    
 
---git checkout -b feature/248972 origin/feature/248972    
+--git checkout -b feature/248972 origin/feature/248972   
+
+--eliminar ramas
+git branch -d nombre rama
+
+--eliminar forzando 
+git branch -D nombrerama
+
+--eliminar rama remota
+git push origin --delete nombreramaremota
