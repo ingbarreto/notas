@@ -11,3 +11,9 @@ git branch -D nombrerama
 
 --eliminar rama remota
 git push origin --delete nombreramaremota
+
+--renombrar una rama
+git branch -m <nombre_antiguo> <nombre_nuevo>
+
+--si estamos en la rama a renombrar
+git branch -m <nombre_nuevo>
