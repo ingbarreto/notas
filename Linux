@@ -1,0 +1,33 @@
+Ubuntu: En lugar de usar su para identificarse como administrador (root) se debe usar sudo -i o sudo delante del comando que necesites permisos.
+para ser root
+	sudo -i
+
+Dpkg. Administra los paquetes de nuestro sistema sin usar repositorios.
+
+-i: Instala un paquete. Necesita la ruta completa del fichero .deb a instalar
+ dpkg -i ficheroainstalar.deb
+
+-r: Borra un paquete pero deja todos los ficheros de configuracion
+ dpkg -r htop
+
+-P : Borra un paquete incluyendo todos los ficheros de configuracion
+ dpkg -P htop
+
+-s: muestra informacion y el estado de un paquete instalado
+
+dpkg -s htop
+
+-I : Muestra informacion de un archivo .deb
+ dpkg -I htop_2.0.02-1_amd64.deb
+
+-l : Lista todos los paquetes que coincidan con un patron determinado
+ dpkg -l apache*
+
+-L : Muestra todos los ficheros que ha instalado un paquete
+ dpkg -L htop
+
+-S : Muestra los paquetes que contienen ficheros que coincidan con el patron indicado
+ dpkg -S mount*
+
+dpkg-reconfigure = Se utiliza para reconfigurar un paquete instaldo en el sistema
+ dpkg-reconfigure nslcd
