@@ -7,7 +7,7 @@ services:
       - 50000:50000
     container_name: jenkins
     volumes:
-      - $PWWD/jenkins_home:/var/jenkins_home
+      - $PWD/jenkins_home:/var/jenkins_home
     networks:
       - net
 networks:
